@@ -1,0 +1,34 @@
+[package]
+name = "prettyplease-any"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Pretty print individual items and expressions, using the prettyplease crate underneath"
+readme = "../README.md"
+repository.workspace = true
+license.workspace = true
+keywords = ["expressions", "formatting", "prettyplease", "rustfmt"]
+categories = ["rust-patterns"]
+
+[package.metadata.docs.rs]
+# fine to include _internal_nightly since docs.rs is always nightly
+all-features = true
+
+[dependencies]
+pastey = "0.2"
+prettyplease = "0.3"
+proc-macro2 = { version = "1", default-features = false }
+remain = "0.2"
+syn = { version = "3", default-features = false, features = ["clone-impls", "full"] }
+
+[dev-dependencies]
+indoc = "2"
+similar-asserts = "2"
+syn = { version = "3", default-features = false, features = ["clone-impls", "full", "parsing", "printing"] }
+
+[features]
+_internal_nightly_test = []
+
+[lints]
+workspace = true
