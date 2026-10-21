@@ -12,6 +12,9 @@ Most changes include the relevant [jj](https://jj-vcs.dev) change ids in parens.
 
 ## Unreleased
 
+## v0.1.1 - 2026-10-20
+Implement `PrettyPlease` for `TraitItem` and `ImplItem`.
+
 ### Added
 - Implement `PrettyPlease` for [`TraitItem`] and [`ImplItem`]. (nzyrmtwv)
 
