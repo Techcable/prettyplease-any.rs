@@ -12,6 +12,12 @@ Most changes include the relevant [jj](https://jj-vcs.dev) change ids in parens.
 
 ## Unreleased
 
+### Added
+- Implement `PrettyPlease` for [`TraitItem`] and [`ImplItem`]. (nzyrmtwv)
+
+[`TraitItem`]: https://docs.rs/syn/3/syn/enum.TraitItem.html
+[`ImplItem`]: https://docs.rs/syn/3/syn/enum.ImplItem.html
+
 ### Changed
 - Always require the `syn/parsing` and `syn/printing` features (mxwsykzm)
   - These are enabled by default, so shouldn't meaningfully increase compile times.

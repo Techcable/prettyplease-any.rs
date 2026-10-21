@@ -16,9 +16,11 @@ categories = ["rust-patterns"]
 all-features = true
 
 [dependencies]
+assert_matches = "1"
 pastey = "0.2"
 prettyplease = "0.3"
 proc-macro2 = { version = "1", default-features = false }
+quote = "1"
 remain = "0.2"
 syn = { version = "3", default-features = false, features = ["clone-impls", "full", "parsing", "printing"] }
 

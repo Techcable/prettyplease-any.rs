@@ -56,20 +56,7 @@ impl PrettyPlease for Stmt {
                     first.chars().all(char::is_whitespace),
                     "In multi-line mode, first line should be blank",
                 );
-                const EXPECTED_INDENT: &str = "    ";
-                let mut result = String::new();
-                for (offset, &line) in inner.iter().enumerate() {
-                    let lineno = offset + 2;
-                    if !result.is_empty() {
-                        result.push('\n');
-                    }
-                    if let Some(stripped) = line.strip_prefix(EXPECTED_INDENT) {
-                        result.push_str(stripped);
-                    } else {
-                        panic!("Line #{lineno} doesn't have expected prefix: {line:?}")
-                    }
-                }
-                result
+                crate::internal::strip_ident(inner, 1)
             }
         }
     }

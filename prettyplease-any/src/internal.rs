@@ -65,4 +65,24 @@ pub fn strip_pretty_prefix_and_suffix<'a>(pretty: &'a str, expected_prefix: &str
         .unwrap_or_else(|| panic!("Unexpected suffix for pretty printed code: {:?}", tail(pretty, 100)))
 }
 
+#[track_caller]
+pub fn strip_ident<S: AsRef<str>>(lines: impl IntoIterator<Item = S>, levels: usize) -> String {
+    let indent_size = levels.checked_mul(4).expect("overflow");
+    let expected_indent = " ".repeat(indent_size);
+    let mut result = String::new();
+    for (offset, line) in lines.into_iter().enumerate() {
+        let lineno = offset + 2;
+        let line = line.as_ref();
+        if !result.is_empty() {
+            result.push('\n');
+        }
+        if let Some(stripped) = line.strip_prefix(&expected_indent) {
+            result.push_str(stripped);
+        } else {
+            panic!("Line #{lineno} doesn't have expected indent (level {levels}): {line:?}")
+        }
+    }
+    result
+}
+
 pub(crate) use pretty_each_ast_enum;
