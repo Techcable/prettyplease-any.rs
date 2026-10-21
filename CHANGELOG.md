@@ -12,6 +12,10 @@ Most changes include the relevant [jj](https://jj-vcs.dev) change ids in parens.
 
 ## Unreleased
 
+### Changed
+- Always require the `syn/parsing` and `syn/printing` features (mxwsykzm)
+  - These are enabled by default, so shouldn't meaningfully increase compile times.
+
 ## v0.1.0 - 2026-10-04
 Initial release.
 

@@ -20,12 +20,11 @@ pastey = "0.2"
 prettyplease = "0.3"
 proc-macro2 = { version = "1", default-features = false }
 remain = "0.2"
-syn = { version = "3", default-features = false, features = ["clone-impls", "full"] }
+syn = { version = "3", default-features = false, features = ["clone-impls", "full", "parsing", "printing"] }
 
 [dev-dependencies]
 indoc = "2"
 similar-asserts = "2"
-syn = { version = "3", default-features = false, features = ["clone-impls", "full", "parsing", "printing"] }
 
 [features]
 _internal_nightly_test = []
